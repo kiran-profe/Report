@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="Smarthr - Bootstrap Admin Template">
+    <meta name="keywords"
+        content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
+    <meta name="author" content="Dreamguys - Bootstrap Admin Template">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Expense Report - HRMS admin template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+
+    <!-- Lineawesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/line-awesome.min.css' %}">
+
+    <!-- Datatable CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/dataTables.bootstrap4.min.css' %}">
+
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/select2.min.css' %}">
+
+    <!-- Datetimepicker CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap-datetimepicker.min.css' %}">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+
+        <div>
+            <div class="content container-fluid">
+
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="page-title">{{title}}</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'web:index' %}">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><span>{{title}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Header -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-0">
+                            <div class="card-header">
+                                <h4 class="card-title mb-0">{{title}}</h4>
+                            </div>
+                            <div class="card-body">
+                                <form class="ajax redirect reset" enctype="multipart/form-data" method="post"
+                                    action="{{url}}">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        {% for field in form %}
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                {% if field.help_text %}
+                                                <span data-original-title="Field Info" title=""
+                                                    data-content="{{ field.help_text }}" data-placement="left"
+                                                    data-toggle="popover" data-trigger="hover"
+                                                    class="help-text-icon zmdi zmdi-info-outline"></span>
+                                                {% endif %}
+                                                <label for="file" class="col-lg-3 col-form-label">File</label>
+                                                <div class="col-lg-9">
+                                                    {{ field }}
+                                                </div>
+                                                {% if field.errors %}
+                                                <label class="error">{{ field.errors.as_text }}</label>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- /Main Wrapper -->
+
+        <!-- jQuery -->
+        <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+
+        <!-- Bootstrap Core JS -->
+        <script src="{% static 'assets/js/popper.min.js' %}"></script>
+        <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+        <!-- Slimscroll JS -->
+        <script src="{% static 'assets/js/jquery.slimscroll.min.js' %}"></script>
+
+        <!-- Select2 JS -->
+        <script src="{% static 'assets/js/select2.min.js' %}"></script>
+
+        <!-- Datatable JS -->
+        <script src="{% static 'assets/js/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'assets/js/dataTables.bootstrap4.min.js' %}"></script>
+
+        <!-- Datetimepicker JS -->
+        <script src="{% static 'assets/js/moment.min.js' %}"></script>
+        <script src="{% static 'assets/js/bootstrap-datetimepicker.min.js' %}"></script>
+
+        <!-- Custom JS -->
+        <script src="{% static 'assets/js/app.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load main_templatetags %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="Smarthr - Bootstrap Admin Template">
+    <meta name="keywords"
+        content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
+    <meta name="author" content="Dreamguys - Bootstrap Admin Template">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Expense Report - HRMS admin template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+
+    <!-- Lineawesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/line-awesome.min.css' %}">
+
+    <!-- Datatable CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/dataTables.bootstrap4.min.css' %}">
+
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/select2.min.css' %}">
+
+    <!-- Datetimepicker CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap-datetimepicker.min.css' %}">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+
+        <!-- Page Wrapper -->
+        <div>
+
+            <!-- Page Content -->
+            <div class="content container-fluid">
+
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="page-title">Report</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Header -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped custom-table mb-0 datatable">
+                                <thead>
+                                    <tr>
+                                        <th>Total Info for the WEEK</th>
+                                        <th>Total (Sun-S at)</th>
+                                        <th>Sun <br> {{sunday}} </th>
+                                        <th>Mon <br> {{monday}} </th>
+                                        <th>Tue <br> {{tue}} </th>
+                                        <th>Wed <br> {{wed}} </th>
+                                        <th>Thu <br> {{thu}} </th>
+                                        <th>Fri <br> {{fri}} </th>
+                                        <th>Sat <br> {{sat}} </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <strong>Running Time</strong>
+                                        </td>
+                                        <td>{{runn_tot|default:"0"|floatformat:2 }}</td>
+                                        <td>{{sunday_report.running_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{mon_report.running_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{tue_report.running_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{wed_report.running_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{thu_report.running_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{fri_report.running_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{sat_report.running_time|default:"0"|floatformat:2 }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <strong>Jogging Time</strong>
+                                        </td>
+                                        <td>{{jogg_tot}}</td>
+                                        <td>{{sunday_report.jogging_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{mon_report.jogging_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{tue_report.jogging_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{wed_report.jogging_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{thu_report.jogging_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{fri_report.jogging_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{sat_report.jogging_time|default:"0"|floatformat:2 }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <strong>Exercise Time</strong>
+                                        </td>
+                                        <td>{{ex_tot}}</td>
+                                        <td>{{sunday_report.exercise_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{mon_report.exercise_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{tue_report.exercise_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{wed_report.exercise_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{thu_report.exercise_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{fri_report.exercise_time|default:"0"|floatformat:2 }}</td>
+                                        <td>{{sat_report.exercise_time|default:"0"|floatformat:2 }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <strong>Total Time (Running+Jogging+Ex ercise)</strong>
+                                        </td>
+                                        <td>{{all_tot|floatformat:2 }}</td>
+                                        <td>{{sun_tot|floatformat:2 }}</td>
+                                        <td>{{mon_tot|floatformat:2 }}</td>
+                                        <td>{{tue_tot|floatformat:2 }}</td>
+                                        <td>{{wed_tot|floatformat:2 }}</td>
+                                        <td>{{thu_tot|floatformat:2 }}</td>
+                                        <td>{{fri_tot|floatformat:2 }}</td>
+                                        <td>{{sat_tot|floatformat:2 }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <strong>Running
+                                                Time engagement % (Running / Total Time)</strong>
+                                        </td>
+                                        <td>{{tot_runn_all|floatformat:2 }}</td>
+                                        <td>{{rensun|floatformat:2 }}</td>
+                                        <td>{{renmon|floatformat:2 }}</td>
+                                        <td>{{rentu|floatformat:2 }}</td>
+                                        <td>{{renwe|floatformat:2 }}</td>
+                                        <td>{{renthu|floatformat:2 }}</td>
+                                        <td>{{renfri|floatformat:2 }}</td>
+                                        <td>{{rensat|floatformat:2 }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <strong>Jogging
+                                                Time engagement % (Jogging / Total Time)</strong>
+                                        </td>
+                                        <td>{{tot_jogg_all|floatformat:2 }}</td>
+                                        <td>{{jonsun|floatformat:2 }}</td>
+                                        <td>{{jonmon|floatformat:2 }}</td>
+                                        <td>{{jontu|floatformat:2 }}</td>
+                                        <td>{{jonwe|floatformat:2 }}</td>
+                                        <td>{{jonthu|floatformat:2 }}</td>
+                                        <td>{{jonfri|floatformat:2 }}</td>
+                                        <td>{{jonsat|floatformat:2 }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <strong>Exercise
+                                                Time engagement % (Exercise / Total Time)</strong>
+                                        </td>
+                                        <td>{{tot_ex_all|floatformat:2 }}</td>
+                                        <td>{{exnsun|floatformat:2 }}</td>
+                                        <td>{{exnmon|floatformat:2 }}</td>
+                                        <td>{{exntu|floatformat:2 }}</td>
+                                        <td>{{exnwe|floatformat:2 }}</td>
+                                        <td>{{exnthu|floatformat:2 }}</td>
+                                        <td>{{exnfri|floatformat:2 }}</td>
+                                        <td>{{exnsat|floatformat:2 }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Page Content -->
+
+        </div>
+        <!-- /Page Wrapper -->
+
+    </div>
+    <!-- /Main Wrapper -->
+
+    <!-- jQuery -->
+    <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- Slimscroll JS -->
+    <script src="{% static 'assets/js/jquery.slimscroll.min.js' %}"></script>
+
+    <!-- Select2 JS -->
+    <script src="{% static 'assets/js/select2.min.js' %}"></script>
+
+    <!-- Datatable JS -->
+    <script src="{% static 'assets/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'assets/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+    <!-- Datetimepicker JS -->
+    <script src="{% static 'assets/js/moment.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap-datetimepicker.min.js' %}"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'assets/js/app.js' %}"></script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
